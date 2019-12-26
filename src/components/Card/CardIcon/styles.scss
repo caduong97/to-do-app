@@ -1,15 +1,17 @@
-@import '../../../assets/variables';
+// @import '../../../assets/styles/mixins';
 //find way to not having to import it here but still able to access all the variables
+
+// $primary-color: black;
 
 @mixin color {
   &--blue {
-    background-color: $primary-color;
+    background-color: var(--primary-color); 
   }
   &--green {
-    background-color: $green-color;
+    background-color: var(--green-color);
   }
   &--yellow {
-    background-color: $yellow-color;
+    background-color: var(--yellow-color);
   }
 }
 
@@ -22,7 +24,8 @@
   height: 60px;
   margin-top: (-20px - 16px); //since 16px is the padding of the container
   border-radius: 4px;
-  box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.25);
+  box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.2);
+  // @include hex-to-rgba(var(--text-primary), 0.75); //TODO: figure out why this didnt work
   
   @include color;
 

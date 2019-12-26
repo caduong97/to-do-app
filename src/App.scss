@@ -1,5 +1,25 @@
-@import './assets/variables';
+@import './assets/styles/normalize';
 
-.main {
-  padding: 80px 0 0 0;
+//!important
+:root {
+  --primary-color: #4751B2;
+  --green-color: #6bc77e;
+  --danger-color: #d24734;
+  --yellow-color: #fdb300; 
+  --text-primary: #000000;
+  --text-secondary: #696969;
+  --background: #ffffff;
+  --card: #ededed;
+
 }
+
+.app {
+  background-color: var(--background);
+
+  &__main {
+    padding: 80px 0 ;
+
+
+  }
+}
+
