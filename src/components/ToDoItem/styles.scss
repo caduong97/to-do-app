@@ -1,25 +1,29 @@
 .todo {
   padding: 10px;
-  border-bottom: 2px solid #e3e3e3;
+  border-bottom: 2px groove var(--border);
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  
-  &__check {
-  }
 
   &__title {
     flex: 10 ;
     padding: 0 0 0 8px;
+    color: var(--text-primary);
+
+    &--disable {
+      color: var(--text-secondary);
+    }
   }
 
   &__edit {
     flex: 1;
+    color: var(--green-color);
   }
 
   &__delete {
     flex: 1;
+    color: var(--danger-color);
   }
 
 }

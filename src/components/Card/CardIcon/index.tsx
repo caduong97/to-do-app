@@ -1,9 +1,9 @@
 import React from 'react'
+import classNames from 'classnames'
 import './styles.scss'
 import AssignmentIcon from '@material-ui/icons/Assignment'
 import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted'
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn'
-import classNames from 'classnames'
 
 interface Props {
   status: string
@@ -35,6 +35,7 @@ const CardIcon = ({status}: Props) => {
     {'card-icon': true},
     {[`card-icon--${iconBackground}`]: true}
   )
+
   return (
     <div className={cardClass}>
       {icon}

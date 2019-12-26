@@ -1,3 +1,19 @@
 .header {
   margin: 0 0 100px 0;
+
+  & > * {
+    background-color: var(--primary-color);
+  }
+
+  &__toolbar {
+    display: flex;
+    justify-content: space-between;
+    
+    &__theme-switch {
+      display: flex;
+      align-items: center;
+    }
+  
+  }
+  
 }
