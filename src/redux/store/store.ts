@@ -1,9 +1,16 @@
 import { createStore } from 'redux'
 import rootReducer from '../reducers/rootReducer'
-import { themeList } from './theme'
+import { Theme, themeList } from './theme'
+import { ToDos, todos } from './todos'
 
-const initialState = {
-  theme: themeList.defaultTheme
+export interface InitialState {
+  theme: Theme
+  todos: ToDos
+}
+
+const initialState: InitialState = {
+  theme: themeList.defaultTheme,
+  todos: todos
 }
 
 

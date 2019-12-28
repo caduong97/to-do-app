@@ -1,17 +1,24 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import {connect} from 'react-redux'
+import {bindActionCreators } from 'redux'
+
 import './styles.scss'
 import { withStyles } from '@material-ui/core/styles'
 import {TextField, Fab } from '@material-ui/core'
 import AddIcon from '@material-ui/icons/Add'
+import * as actionCreators from '../../redux/actions/actionCreators'
 
 interface Props {
-  theme: any
+  theme: any,
+  // todos: any,
+  addTodo: (arg: string) => void
 }
 
-export const ToDoInput: React.FC<Props> = ({theme}) => {
+export const ToDoInput = ({theme, addTodo}:Props) => {
 
-  
+  // console.log(theme)
+  console.log(addTodo)
+   
   //TODO: instead of hard coded hex-code color here, grab it from redux theme store
   const CustomTextField = withStyles({
     root: {
@@ -42,6 +49,14 @@ export const ToDoInput: React.FC<Props> = ({theme}) => {
     }
   })(Fab)
 
+  const input = useRef(null)
+
+  // const onClick = () => {
+  //   console.log(input.current.value)
+  // }
+
+  console.log("rerednder")
+
   return (
     <div className="input-group">
       <CustomTextField
@@ -51,24 +66,32 @@ export const ToDoInput: React.FC<Props> = ({theme}) => {
         multiline
         variant="outlined"
         margin="normal"
-        
+        inputRef={input}
       />
       <CustomFab 
         size="medium" 
         color="primary"  
         aria-label="add" 
         className="input-group__button"
+        onClick={() => addTodo(input.current.value)}
       >
         <AddIcon />
       </CustomFab>  
+
+      
     </div>
   )
 }
 
 const mapStateToProps = (state: any) => {
   return {
-    theme: state.theme
+    theme: state.theme,
+    todos: state.todos //TO LEARN: why have to be here just for the action
   }
 }
 
-export default connect(mapStateToProps)(ToDoInput)
+const mapDispatchToProps = (dispatch: any) => {
+  return bindActionCreators(actionCreators, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ToDoInput)

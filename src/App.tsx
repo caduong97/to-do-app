@@ -5,22 +5,23 @@ import ToDoInput from './components/ToDoInput'
 import ToDoItem from './components/ToDoItem'
 import Card from './components/Card'
 
-import {bindActionCreators } from 'redux'
+import {Dispatch, bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as actionCreators from './redux/actions/actionCreators'
+import { InitialState } from './redux/store/store'
 
-interface Props {
-  theme: any
-}
+// interface Props {
+//   theme: any,
+//   todos: any
+// }
 
-const App: React.FC<Props> = ({theme}) => {
+type Actions = actionCreators.SwitchThemeAction | actionCreators.AddTodoAction
 
-  console.log("theme and rerender", theme)
+const App: React.FC<Props> = ({theme, todos}) => {
 
   Object.keys(theme).map(key => {
     const value = theme[key]
     document.body.style.setProperty(key, value)
-    console.log(document.body.style.getPropertyValue(key))
   })
 
   return (
@@ -32,27 +33,27 @@ const App: React.FC<Props> = ({theme}) => {
           <ToDoInput/>
         </Card>
         <Card label="to-do list" status="doing">
-          <ToDoItem status="doing" content="blahblahblah blah blah blah "/>
-          <ToDoItem status="doing" content="blahblahblah blah blah blah "/>
-          <ToDoItem status="doing" content="blahblahblah blah blah blah "/>
+          {todos.doing.map((item: string, index: number) => <ToDoItem key={index} status="doing" content={item}/>)}
         </Card>
         <Card label="completed" status="done">
-          <ToDoItem status="done" content="blahblahblah blah blah blah "/>
-          <ToDoItem status="done" content="blahblahblah blah blah blah "/>
+          {todos.done.map((item: string, index: number) => <ToDoItem key={index} status="done" content={item}/>)}
         </Card>
       </div>
     </div>
   );
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: InitialState) => {
   return {
-    theme: state.theme
+    theme: state.theme,
+    todos: state.todos
   }
 }
 
-const mapDispatchToProps = (dispatch: any) => {
+const mapDispatchToProps = (dispatch: Dispatch<Actions>) => {
   return bindActionCreators(actionCreators, dispatch)
 }
+
+type Props = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

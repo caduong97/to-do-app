@@ -12,6 +12,8 @@ interface Props {
 
 const Header = ({switchTheme}:Props) => {
 
+  console.log(switchTheme)
+
   return (
     <div>
       <AppBar className="header" position="absolute">

@@ -1,4 +1,13 @@
-export const themeList = {
+export interface Theme {
+  [key: string]: string
+}
+
+interface ThemeList {
+  defaultTheme: Theme
+  darkTheme: Theme
+}
+
+export const themeList:ThemeList = {
   defaultTheme: {
     "--primary-color": "#4e97fc",
     "--green-color": "#6bc77e",
