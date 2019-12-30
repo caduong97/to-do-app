@@ -4,6 +4,7 @@ import Header from './components/Header'
 import ToDoInput from './components/ToDoInput'
 import ToDoItem from './components/ToDoItem'
 import Card from './components/Card'
+// import { Typography } from '@material-ui/core'
 
 import {Dispatch, bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
@@ -15,7 +16,7 @@ import { InitialState } from './redux/store/store'
 //   todos: any
 // }
 
-type Actions = actionCreators.SwitchThemeAction | actionCreators.AddTodoAction
+type Actions = actionCreators.SwitchThemeAction | actionCreators.TodoAction
 
 const App: React.FC<Props> = ({theme, todos}) => {
 
@@ -33,10 +34,13 @@ const App: React.FC<Props> = ({theme, todos}) => {
           <ToDoInput/>
         </Card>
         <Card label="to-do list" status="doing">
-          {todos.doing.map((item: string, index: number) => <ToDoItem key={index} status="doing" content={item}/>)}
+          {todos.doing && (
+            todos.doing.map((item: string, index: number) => <ToDoItem key={index} status="doing" content={item}/>)
+          )}
         </Card>
         <Card label="completed" status="done">
-          {todos.done.map((item: string, index: number) => <ToDoItem key={index} status="done" content={item}/>)}
+          {todos.done && (todos.done.map((item: string, index: number) => <ToDoItem key={index} status="done" content={item}/>)
+          )}
         </Card>
       </div>
     </div>

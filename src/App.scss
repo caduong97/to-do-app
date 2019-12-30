@@ -15,11 +15,18 @@
 
 .app {
   background-color: var(--background);
+  min-height: 100vh;
 
   &__main {
     padding: 80px 0 ;
 
-
+    &__no-item {
+      color: var(--text-secondary);
+      padding: 10px;
+      border-bottom: 2px groove var(--border);
+    }
   }
+
+
 }
 

@@ -1,0 +1,7 @@
+export const SWITCH_THEME = "SWITCH_THEME"
+export const ADD_TODO = "ADD_TODO"
+export const DELETE_DOING_ITEM = "DELETE_DOING_ITEM"
+export const EDIT_ITEM = "EDIT_ITEM"
+export const RE_DO_ITEM = "RE_DO_ITEM"
+export const DELETE_DONE_ITEM = "DELETE_DONE_ITEM"
+export const MARK_DONE = "MARK_DONE"

@@ -2,13 +2,15 @@ import React from 'react'
 import { AppBar, Toolbar, Typography, Switch} from '@material-ui/core'
 import './styles.scss'
 
-import {bindActionCreators } from 'redux'
+import {Dispatch, bindActionCreators } from 'redux'
 import {connect} from 'react-redux'
 import * as actionCreators from '../../redux/actions/actionCreators'
+import { InitialState } from '../../redux/store/store'
 
-interface Props {
-  switchTheme: () => void
-}
+
+// interface Props {
+//   switchTheme: () => void
+// }
 
 const Header = ({switchTheme}:Props) => {
 
@@ -35,14 +37,16 @@ const Header = ({switchTheme}:Props) => {
   )
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: InitialState) => {
   return {
     theme: state.theme
   }
 }
 
-const mapDispatchToProps = (dispatch: any) => {
+const mapDispatchToProps = (dispatch: Dispatch<actionCreators.SwitchThemeAction>) => {
   return bindActionCreators(actionCreators, dispatch)
 }
+
+type Props = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header)

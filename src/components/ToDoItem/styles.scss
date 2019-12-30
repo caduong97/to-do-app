@@ -1,29 +1,57 @@
 .todo {
-  padding: 10px;
   border-bottom: 2px groove var(--border);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  width: 100%;
 
+  &__item {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__title {
+      flex: 10 ;
+      padding: 0 0 0 8px;
+      color: var(--text-primary);
+  
+      &--disable {
+        color: var(--text-secondary);
+        flex: 10;
+      }
+    }
+  
+    &__edit {
+      flex: 1;
+      color: var(--green-color);
+    }
 
-  &__title {
-    flex: 10 ;
-    padding: 0 0 0 8px;
-    color: var(--text-primary);
-
-    &--disable {
-      color: var(--text-secondary);
+    &__redo {
+      flex: 1;
+      color: var(--primary-color);
+    }
+  
+    &__delete {
+      flex: 1;
+      color: var(--danger-color);
     }
   }
 
   &__edit {
-    flex: 1;
-    color: var(--green-color);
-  }
+    padding: 10px 10px 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  &__delete {
-    flex: 1;
-    color: var(--danger-color);
+    &__field {
+      width: 450px;
+
+      & > div {
+        color: var(--text-primary);
+      }
+    }
+
+    &__save {
+      color: var(--primary-color);
+    }
   }
+  
 
 }

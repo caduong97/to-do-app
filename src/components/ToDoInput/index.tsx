@@ -14,7 +14,7 @@ interface Props {
   addTodo: (arg: string) => void
 }
 
-export const ToDoInput = ({theme, addTodo}:Props) => {
+const ToDoInput = ({theme, addTodo}:Props) => {
 
   // console.log(theme)
   console.log(addTodo)
