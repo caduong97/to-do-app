@@ -13,7 +13,7 @@ Simple to-do app in TypeScript done for practicing purposes
 
 ## Scripts
 
-### `git clone` 
+### `git clone https://github.com/caduong97/to-do-app.git` 
 
 To clone the project
 
