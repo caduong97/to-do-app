@@ -1,17 +1,17 @@
-### Description:
+## Description:
 Simple to-do app in TypeScript done for practicing purposes
 
-### Feature:
+## Feature:
 - Add, delete, edit, mark done a to-do item
 - Change to dark or light theme
 
-### Technologies:
+## Technologies:
 - Create React App
 - TypeScript
 - Styling: SASS
 - Global state management with Redux
 
-## Available Scripts
+## Scripts
 
 ### `git clone` 
 
